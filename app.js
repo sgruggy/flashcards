@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '172.30.90.221';
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
@@ -31,6 +31,6 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-app.listen(8080, () => {
+app.listen(server_port, server_ip_address, () => {
     console.log("The application is running on port 3001");
 });
