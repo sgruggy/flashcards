@@ -31,6 +31,6 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-app.listen(8080, '172.30.90.221', () => {
+app.listen(8080, () => {
     console.log("The application is running on port 3001");
 });
